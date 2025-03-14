@@ -1,0 +1,120 @@
+/* General Styling */
+body {
+    background-color: #f8f9fa;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Navbar */
+.navbar {
+    padding: 15px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav-link {
+    font-size: 1.1rem;
+}
+
+/* Dashboard */
+.container {
+    max-width: 800px;
+    margin-top: 30px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+p {
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+/* Wallet Card */
+.wallet-card {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.wallet-card h3 {
+    margin: 0;
+}
+
+/* Transactions Table */
+.table {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.table th {
+    background: #007bff;
+    color: white;
+    text-align: center;
+}
+
+.table td {
+    text-align: center;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f1f1f1;
+}
+
+.no-transactions {
+    text-align: center;
+    font-style: italic;
+}
+
+/* Logout Link */
+.logout-btn {
+    color: red !important;
+    font-weight: bold;
+}
+
+/* Centered Form Card */
+.form-container {
+    max-width: 400px;
+    margin: 50px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Load Money Heading */
+.form-container h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Form Fields */
+.form-container input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Submit Button */
+.btn-success {
+    width: 100%;
+    padding: 10px;
+    font-size: 1.2rem;
+}
+
+.hidden{
+    display: none
+}

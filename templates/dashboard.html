@@ -1,0 +1,82 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    
+<div class="container">
+        <h2>Welcome, {{ user.username }}!</h2>
+
+        <!-- Wallet Card -->
+        <div class="wallet-card">
+            <h3>Wallet Balance</h3>
+            <h2>${{ wallet.balance }}</h2>
+        </div>
+
+        <!-- Transactions Table -->
+        <h3 class="text-center">Transaction History</h3>
+        <h3>Latest Transactions</h3>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Amount</th>
+                    <th>Type</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for transaction in latest_transactions|slice:":5" %}
+                <tr>
+                    <td>
+                        {% if transaction.transaction_type == 'Debit' %}
+                            -${{ transaction.amount }}
+                        {% else %}
+                            +${{ transaction.amount }}
+                        {% endif %}
+                    </td>
+                    <td>{{ transaction.transaction_type }}</td>
+                    <td>{{ transaction.get_nepali_time }}</td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="3" class="no-transactions">No transactions yet.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+</div>
+
+ <button id="see-more-btn" class="btn btn-primary">See More</button>
+ <div id="older-transactions" class="hidden">
+    <h4>Older Transactions</h4>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Amount</th>
+                <th>Type</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for transaction in latest_transactions|slice:"5:" %}
+            <tr>
+                <td>
+                    {% if transaction.transaction_type == 'Debit' %}
+                        -${{ transaction.amount }}
+                    {% else %}
+                        +${{ transaction.amount }}
+                    {% endif %}
+                </td>
+                <td>{{ transaction.transaction_type }}</td>
+                <td>{{ transaction.get_nepali_time }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="3" class="no-transactions">No more transactions.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<script src="{% static 'js/script.js' %}"></script>
+{% endblock %}
